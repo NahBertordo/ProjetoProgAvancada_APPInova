@@ -26,7 +26,7 @@ class ProfessorController {
     const result = await ProfessorServices.criarProfessor(newProfessor)
     if (result) {
       res.status(200).json({
-        status: 'Professor criado com sucesso!',
+        status: 'Professor foi criado com sucesso!',
         professor: result,
       })
     } else {
@@ -41,7 +41,7 @@ class ProfessorController {
     try {
       await ProfessorServices.deletarProfessor(matriculaProfessor)
       res.status(200).json({
-        status: 'Professor deletado com sucesso!',
+        status: 'Professor foi deletado com sucesso!',
       })
     } catch (error) {
       res.status(200).json({

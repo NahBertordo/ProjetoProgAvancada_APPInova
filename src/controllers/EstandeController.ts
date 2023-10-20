@@ -26,7 +26,7 @@ class EstandeController {
     const result = await EstandeServices.criarEstande(newEstande)
     if (result) {
       res.status(200).json({
-        status: 'Estande criado com sucesso!',
+        status: 'Estande foi criado com sucesso!',
         estande: result,
       })
     } else {
@@ -41,7 +41,7 @@ class EstandeController {
     try {
       await EstandeServices.deletarEstande(idEstande)
       res.status(200).json({
-        status: 'Estande deletado com sucesso!',
+        status: 'Estande foi deletado com sucesso!',
       })
     } catch (error) {
       res.status(200).json({

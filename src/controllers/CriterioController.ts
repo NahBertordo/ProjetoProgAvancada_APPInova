@@ -26,7 +26,7 @@ class CriterioController {
     const result = await CriterioServices.criarCriterio(newCriterio)
     if (result) {
       res.status(200).json({
-        status: 'Criterio criado com sucesso!',
+        status: 'Criterio foi criado com sucesso!',
         criterio: result,
       })
     } else {
@@ -41,7 +41,7 @@ class CriterioController {
     try {
       await CriterioServices.deletarCriterio(idCriterio)
       res.status(200).json({
-        status: 'Criterio deletado com sucesso!',
+        status: 'Criterio foi deletado com sucesso!',
       })
     } catch (error) {
       res.status(200).json({

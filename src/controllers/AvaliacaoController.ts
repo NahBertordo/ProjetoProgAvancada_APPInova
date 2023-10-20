@@ -26,7 +26,7 @@ class AvaliacaoController {
     const result = await AvaliacaoServices.criarAvaliacao(newAvaliacao)
     if (result) {
       res.status(200).json({
-        status: 'Avaliacao criada com sucesso!',
+        status: 'Avaliacao foi criada com sucesso!',
         avaliacao: result,
       })
     } else {
@@ -41,7 +41,7 @@ class AvaliacaoController {
     try {
       await AvaliacaoServices.deletarAvaliacao(idAvaliacao)
       res.status(200).json({
-        status: 'Avaliacao deletada com sucesso!',
+        status: 'Avaliacao foi deletada com sucesso!',
       })
     } catch (error) {
       res.status(200).json({

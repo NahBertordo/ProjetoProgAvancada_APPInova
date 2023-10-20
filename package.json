@@ -1,7 +1,7 @@
 {
   "name": "projetopooii_appinova",
   "version": "1.0.0",
-  "description": "",
+  "description": "<p>Projeto da matéria de programação avançada pra web de uma API para o inovaweek (UVV), sistema de avaliação dos grupos.<br> Componentes do grupo:<br> 1- Nathalia Bertordo<br> 2- Caio Calheiros<br> 3- Levi Dias<br> 4- Victor Calheiros<br> </p>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,6 +17,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "prisma": "^5.4.2",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {

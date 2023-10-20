@@ -22,5 +22,5 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta: ${port}`)
+    console.log(`Servidor está rodando na porta: ${port}`)
 })

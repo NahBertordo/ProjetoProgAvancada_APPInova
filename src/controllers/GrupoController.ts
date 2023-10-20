@@ -26,7 +26,7 @@ class GrupoController {
     const result = await GrupoServices.criarGrupo(newGrupo)
     if (result) {
       res.status(200).json({
-        status: 'Grupo criado com sucesso!',
+        status: 'Grupo foi criado com sucesso!',
         grupo: result,
       })
     } else {
@@ -41,7 +41,7 @@ class GrupoController {
     try {
       await GrupoServices.deletarGrupo(idGrupo)
       res.status(200).json({
-        status: 'Grupo deletado com sucesso!',
+        status: 'Grupo foi deletado com sucesso!',
       })
     } catch (error) {
       res.status(200).json({
