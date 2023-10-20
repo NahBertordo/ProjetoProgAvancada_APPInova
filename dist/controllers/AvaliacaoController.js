@@ -20,13 +20,13 @@ class AvaliacaoController {
             const result = yield AvaliacaoServices_1.default.listarAvaliacao();
             if (result) {
                 res.status(200).json({
-                    status: 'Avaliacoes listadas com sucesso!',
+                    status: 'Avaliacoes foram listadas com sucesso!',
                     avaliacao: result,
                 });
             }
             else {
                 res.status(200).json({
-                    status: 'erro',
+                    status: 'erro!',
                 });
             }
         });
@@ -42,13 +42,13 @@ class AvaliacaoController {
             const result = yield AvaliacaoServices_1.default.criarAvaliacao(newAvaliacao);
             if (result) {
                 res.status(200).json({
-                    status: 'Avaliacao criada com sucesso!',
+                    status: 'Avaliacao foi criada com sucesso!',
                     avaliacao: result,
                 });
             }
             else {
                 res.status(200).json({
-                    status: 'erro',
+                    status: 'erro!',
                 });
             }
         });
@@ -59,12 +59,12 @@ class AvaliacaoController {
             try {
                 yield AvaliacaoServices_1.default.deletarAvaliacao(idAvaliacao);
                 res.status(200).json({
-                    status: 'Avaliacao deletada com sucesso!',
+                    status: 'Avaliacao foi deletada com sucesso!',
                 });
             }
             catch (error) {
                 res.status(200).json({
-                    status: 'erro',
+                    status: 'erro!',
                 });
             }
         });
