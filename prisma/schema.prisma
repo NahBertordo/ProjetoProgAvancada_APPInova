@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Estande{
+  idEstande Int @id
+  nomeEstande String
+  grupo Grupo[]
+}
+
+model Grupo{
+  idGrupo Int @id
+  nomeGrupo String
+  integrante String
+  lider Aluno @relation(fields: [matriculaLider], references: [matricula])
+  matriculaLider Int
+  localApresentacao Estande @relation(fields: [id_estandeApresentacao], references: [idEstande])
+  id_estandeApresentacao Int
+  notaGrupo Avaliacao @relation(fields: [nota_apresentacao], references: [notaApresentacao])
+  nota_apresentacao Float
+}
+
+model Aluno{
+  matricula Int @id 
+  nomeAluno String
+  emailAluno String
+  senhaAluno String
+  grupo Grupo[]
+  avaliacao Avaliacao[]
+}
+
+model Professor{
+  matriculaProfessor Int @id
+  nomeProfessor String
+  emailProfessor String
+  senhaProfessor String
+  avaliacao Avaliacao[]
+}
+
+model Avaliacao{
+  idAvaliacao Int @id
+  notaApresentacao Float @unique
+  criterio Criterio @relation(fields: [id_criterioAvaliacao], references: [idCriterio])
+  id_criterioAvaliacao Int
+  professor Professor @relation(fields: [matricula_Professor], references: [matriculaProfessor])
+  matricula_Professor Int
+  aluno Aluno @relation(fields: [matricula_Aluno], references: [matricula])
+  matricula_Aluno Int
+  grupo Grupo[]
+}
+
+model Criterio{
+  idCriterio Int @id
+  inovacao Float
+  maturidade Float
+  atratividade Float
+  apresentacao Float
+  avaliacao Avaliacao[]
+}
