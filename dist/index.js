@@ -1,34 +1,27 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const novoAluno = yield prisma.aluno.create({
-            data: {
-                matricula: 21212121,
-                nomeAluno: 'Jhon Arias',
-                emailAluno: 'jhonarias@gmail.com',
-                senhaAluno: 'motorzinho',
-            }
-        });
-    });
-}
-main()
-    .then(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield prisma.$disconnect();
-}))
-    .catch((e) => __awaiter(void 0, void 0, void 0, function* () {
-    console.error(e);
-    yield prisma.$disconnect();
-    process.exit(1);
-}));
+const express_1 = __importDefault(require("express"));
+const EstandeRoutes_1 = __importDefault(require("./routes/EstandeRoutes"));
+const GrupoRoutes_1 = __importDefault(require("./routes/GrupoRoutes"));
+const AlunoRoutes_1 = __importDefault(require("./routes/AlunoRoutes"));
+const ProfessorRoutes_1 = __importDefault(require("./routes/ProfessorRoutes"));
+const AvaliacaoRoutes_1 = __importDefault(require("./routes/AvaliacaoRoutes"));
+const CriterioRoutes_1 = __importDefault(require("./routes/CriterioRoutes"));
+const app = (0, express_1.default)();
+const port = 3000;
+app.use(express_1.default.json());
+app.use('/api', EstandeRoutes_1.default);
+app.use('/api', GrupoRoutes_1.default);
+app.use('/api', AlunoRoutes_1.default);
+app.use('/api', ProfessorRoutes_1.default);
+app.use('/api', AvaliacaoRoutes_1.default);
+app.use('/api', CriterioRoutes_1.default);
+app.get('/', (req, res) => {
+    res.send('INOVAWEEK - Avaliação');
+});
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta: ${port}`);
+});
