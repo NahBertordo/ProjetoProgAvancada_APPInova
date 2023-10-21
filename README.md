@@ -1,4 +1,4 @@
-# Projeto Programação Programação Avançada para WEB - API InovaWeek
+# Projeto de Programação Avançada para WEB - API InovaWeek
 <p>Projeto da matéria de programação avançada pra web de uma API para o inovaweek (UVV), sistema de avaliação dos grupos.<br>
 Componentes do grupo:<br>
 1- Nathalia Bertordo<br>
